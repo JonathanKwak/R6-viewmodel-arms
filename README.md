@@ -18,7 +18,9 @@ This system does not represent how I code now. I'm constantly learning and impro
 
 1. Open ROBLOX Studio
 2. Open or create a game
-3. Import onto the StarterGui or StarterPlayer service
+3. Import code into a LocalScript
+4. Put LocalScript into the StarterGui or StarterPlayer service
+5. Import the `spring.lua` code into a ModuleScript, and place it under the LocalScript
 
 ## Design Notes
 
