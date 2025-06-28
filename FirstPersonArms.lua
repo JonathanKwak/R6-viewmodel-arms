@@ -4,6 +4,10 @@ local root = character:WaitForChild("HumanoidRootPart")
 local humanoid = character:WaitForChild("Humanoid")
 local camera = workspace.CurrentCamera
 
+if humanoid.RigType ~= Enum.HumanoidRigType.R6 then
+	return
+end
+
 local head = character:WaitForChild("Head")
 local torso = character:WaitForChild("Torso")
 local leftArm = character:WaitForChild("Left Arm")
@@ -24,7 +28,7 @@ local defaultRightArmC0 = rightShoulder.C0
 local runService = game:GetService("RunService")
 local userInputService = game:GetService("UserInputService")
 
-local spring = require(game.ReplicatedStorage.Modules.spring)
+local spring = require(script.spring)
 
 local mouseDeltaDivision = 400
 
@@ -34,10 +38,11 @@ local movementOffset = CFrame.new()
 local swaySpring = spring.create()
 local movementSpring = spring.create()
 
+-- not particularly efficient but it doesn't matter all that much, performance impact is minimal
 local function setTransparency(part)
-	if part and part:IsA("BasePart") and (part.Name=="Left Arm" or part.Name=="Right Arm") then
+	if part and part:IsA("BasePart") and (part.Name == "Left Arm" or part.Name == "Right Arm") then
 		part.LocalTransparencyModifier = 0
-		part.Changed:Connect(function (property)    
+		part.Changed:Connect(function(property)    
 			part.LocalTransparencyModifier = part.Transparency
 		end)
 	end
@@ -48,6 +53,7 @@ local function inFirstPerson()
 	return dist < 1
 end
 
+-- utilizes sinewaves for procedural walk animation cycles
 local function getBobbing(addition,speed,modifier)
 	return math.sin(tick()*addition*speed)*modifier
 end
@@ -102,7 +108,7 @@ local function renderStepped(dt)
 	end
 end
 
-for _,v in pairs(character:GetChildren()) do
+for _, v in pairs(character:GetChildren()) do
 	setTransparency(v)
 end
 runService.RenderStepped:Connect(renderStepped)
