@@ -1,5 +1,5 @@
 # R6 viewmodel arms
-In a default ROBLOX game, your character's arms will not follow your camera like a first person shooter's viewmodel would. This script would solve that problem.
+In a default ROBLOX game, your character's arms will not follow your camera like a first person shooter's viewmodel would. This script would solve that problem. This system also uses an external 3rd party module for smoothening transitions, called `spring.lua`
 
 Here is the forum link for the original documentation:
 https://devforum.roblox.com/t/r6-arms-as-viewmodels/1705291
