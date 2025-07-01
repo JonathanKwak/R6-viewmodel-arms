@@ -4,6 +4,9 @@ In a default ROBLOX game, your character's arms will not follow your camera like
 Here is the forum link for the original documentation:
 https://devforum.roblox.com/t/r6-arms-as-viewmodels/1705291
 
+And here is the link for the `spring.lua` 3rd party code:
+https://create.roblox.com/store/asset/5692144533/spring
+
 This system was used by many of my other developer friends, and some have found their way on popular Roblox games (for instance, Combat Initiation).
 This system does not represent how I code now. I'm constantly learning and improving, so this code was probably outdated by my standards at around 6 months old.
 
